@@ -17,4 +17,10 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
   }
+
+  getHero(id : number): Observable<Hero> {
+    // TODO: 메시지는 히어로 데이터를 가져온 _후에_ 보내야 합니다.
+    this.messageService.add(`HeroSerice: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
+  }
 }
